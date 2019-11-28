@@ -21,9 +21,9 @@ void process_image_callback(const sensor_msgs::Image img)
 
     int white_pixel = 255;
 
-	for(int i = 0; i < img.data.size(); i++)
+	for(int i = 0; i < img.data.size(); i+=3)
 	{
-		if(img.data[i]==white_pixel)
+		if(img.data[i]==white_pixel&img.data[i+1]==white_pixel&img.data[i+2]==white_pixel)
 		{
 			if(i%img.width < img.width/3)
 			{
