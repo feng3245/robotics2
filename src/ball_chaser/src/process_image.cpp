@@ -25,13 +25,13 @@ void process_image_callback(const sensor_msgs::Image img)
 	{
 		if(img.data[i]==white_pixel&img.data[i+1]==white_pixel&img.data[i+2]==white_pixel)
 		{
-			if(i%img.width < img.width*3/3)
+			if(i%(img.width*3) < img.width*3/3)
 			{
 			//Do left command
 			drive_robot(0.0, 0.3);
 			return;
 			}
-			if(i%img.width < (img.width*3/3)*2)
+			if(i%(img.width*3) < (img.width*3/3)*2)
 			{
 			//Do forward
 			drive_robot(0.5, 0.0);
