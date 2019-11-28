@@ -86,6 +86,7 @@
 			<geometry>
 				<cylinder radius="0.1" length="0.05" />
 			</geometry>
+
 		</visual>
 	</link>
 	<joint type="fixed" name="hokuyo_joint">
@@ -169,5 +170,12 @@
 			</geometry>
 		</visual>
 	</link>
+<gazebo reference="left_wheel">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
 </robot>
 
