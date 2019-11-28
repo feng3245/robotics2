@@ -23,24 +23,26 @@ void process_image_callback(const sensor_msgs::Image img)
 
 	for(int i = 0; i < img.data.size(); i++)
 	{
-		
-		if(i%img.width < img.width/3)
+		if(img.data[i]==white_pixel)
 		{
+			if(i%img.width < img.width/3)
+			{
 			//Do left command
 			drive_robot(0.0, 0.3);
 			return;
-		}
-		if(i%img.width < (img.width/3)*2)
-		{
+			}
+			if(i%img.width < (img.width/3)*2)
+			{
 			//Do forward
 			drive_robot(0.5, 0.0);
 			return;
-		}
-		else
-		{
+			}
+			else
+			{
 			//Turn right
 			drive_robot(0.0, -0.3);
 			return;
+			}
 		}
 	}
     // TODO: Loop through each pixel in the image and check if there's a bright white one
